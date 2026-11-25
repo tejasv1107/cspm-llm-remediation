@@ -1,0 +1,364 @@
+{
+  "n_findings": 11,
+  "with_rag": {
+    "pass_rate": 0.45454545454545453,
+    "decline_rate": 0.09090909090909091,
+    "n_retrieved_correct_module": 7
+  },
+  "without_rag": {
+    "pass_rate": 0.45454545454545453,
+    "decline_rate": 0.09090909090909091
+  },
+  "total_bedrock_calls": 22,
+  "total_estimated_cost_usd": 0.2272,
+  "rows": [
+    {
+      "finding_id": "ablation-00-iam-4",
+      "control_id": "IAM.4",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "access_analyzer_enable",
+        "guardduty_enable",
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 3130,
+      "output_tokens": 505,
+      "estimated_cost_usd": 0.01131,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-00-iam-4",
+      "control_id": "IAM.4",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 811,
+      "output_tokens": 309,
+      "estimated_cost_usd": 0.004712,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 19): variable \"region\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-01-cloudtrail-1",
+      "control_id": "CloudTrail.1",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "cloudtrail_enable"
+      ],
+      "declined": false,
+      "input_tokens": 3093,
+      "output_tokens": 2701,
+      "estimated_cost_usd": 0.033196,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-01-cloudtrail-1",
+      "control_id": "CloudTrail.1",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 823,
+      "output_tokens": 2233,
+      "estimated_cost_usd": 0.023976000000000004,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-02-ec2-2",
+      "control_id": "EC2.2",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "default_security_group_lockdown",
+        "security_group_restrict_ssh",
+        "vpc_flow_logs_enable"
+      ],
+      "declined": false,
+      "input_tokens": 4392,
+      "output_tokens": 426,
+      "estimated_cost_usd": 0.013044,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-02-ec2-2",
+      "control_id": "EC2.2",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 817,
+      "output_tokens": 367,
+      "estimated_cost_usd": 0.005304,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-03-ec2-7",
+      "control_id": "EC2.7",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "ebs_encryption_default",
+        "s3_bucket_encryption"
+      ],
+      "declined": false,
+      "input_tokens": 2347,
+      "output_tokens": 667,
+      "estimated_cost_usd": 0.011363999999999999,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 12): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-03-ec2-7",
+      "control_id": "EC2.7",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 806,
+      "output_tokens": 199,
+      "estimated_cost_usd": 0.003602,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 11): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-04-guardduty-1",
+      "control_id": "GuardDuty.1",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "guardduty_enable",
+        "access_analyzer_enable",
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 3124,
+      "output_tokens": 612,
+      "estimated_cost_usd": 0.012368,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-04-guardduty-1",
+      "control_id": "GuardDuty.1",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 805,
+      "output_tokens": 293,
+      "estimated_cost_usd": 0.004540000000000001,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-05-iam-7",
+      "control_id": "IAM.7",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 1810,
+      "output_tokens": 432,
+      "estimated_cost_usd": 0.00794,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 12): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-05-iam-7",
+      "control_id": "IAM.7",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 812,
+      "output_tokens": 296,
+      "estimated_cost_usd": 0.004584,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 11): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-06-s3-4",
+      "control_id": "S3.4",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_bucket_encryption",
+        "s3_public_access_block",
+        "s3_bucket_versioning"
+      ],
+      "declined": false,
+      "input_tokens": 2919,
+      "output_tokens": 468,
+      "estimated_cost_usd": 0.010518,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 23): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-06-s3-4",
+      "control_id": "S3.4",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 820,
+      "output_tokens": 454,
+      "estimated_cost_usd": 0.006180000000000001,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-07-s3-14",
+      "control_id": "S3.14",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_bucket_versioning",
+        "s3_bucket_encryption",
+        "s3_public_access_block"
+      ],
+      "declined": false,
+      "input_tokens": 2907,
+      "output_tokens": 466,
+      "estimated_cost_usd": 0.010474,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 23): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-07-s3-14",
+      "control_id": "S3.14",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 808,
+      "output_tokens": 284,
+      "estimated_cost_usd": 0.004456,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 11): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-08-s3-8",
+      "control_id": "S3.8",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_public_access_block",
+        "s3_bucket_encryption",
+        "s3_bucket_versioning"
+      ],
+      "declined": false,
+      "input_tokens": 2908,
+      "output_tokens": 475,
+      "estimated_cost_usd": 0.010566,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 12): variable \"tags\" is declared but not used",
+        "[tflint] terraform_unused_declarations (line 29): data \"aws_caller_identity\" \"current\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-08-s3-8",
+      "control_id": "S3.8",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 809,
+      "output_tokens": 312,
+      "estimated_cost_usd": 0.004738,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 11): variable \"tags\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-09-ec2-13",
+      "control_id": "EC2.13",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "security_group_restrict_ssh",
+        "default_security_group_lockdown"
+      ],
+      "declined": true,
+      "input_tokens": 3024,
+      "output_tokens": 224,
+      "estimated_cost_usd": 0.008288,
+      "validation_passed": false,
+      "validation_errors": [
+        "declined"
+      ],
+      "resource_type_in_output_matches": false
+    },
+    {
+      "finding_id": "ablation-09-ec2-13",
+      "control_id": "EC2.13",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": true,
+      "input_tokens": 835,
+      "output_tokens": 183,
+      "estimated_cost_usd": 0.0035,
+      "validation_passed": false,
+      "validation_errors": [
+        "declined"
+      ],
+      "resource_type_in_output_matches": false
+    },
+    {
+      "finding_id": "ablation-10-ec2-6",
+      "control_id": "EC2.6",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "vpc_flow_logs_enable",
+        "default_security_group_lockdown"
+      ],
+      "declined": false,
+      "input_tokens": 2773,
+      "output_tokens": 1358,
+      "estimated_cost_usd": 0.019126,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-10-ec2-6",
+      "control_id": "EC2.6",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 822,
+      "output_tokens": 1174,
+      "estimated_cost_usd": 0.013384,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    }
+  ]
+}

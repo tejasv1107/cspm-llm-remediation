@@ -1,0 +1,70 @@
+{
+  "data_path": "data/labelled/labelled_findings_real.csv",
+  "n_train": 10117,
+  "n_test": 2530,
+  "label_distribution_train": {
+    "1": 5060,
+    "0": 3814,
+    "2": 1017,
+    "3": 226
+  },
+  "cv_macro_f1": {
+    "rule_based_severity_only": {
+      "mean": 0.6826112887629228,
+      "std": 0.007428049544650519,
+      "folds": [
+        0.691106749414228,
+        0.6748219897359278,
+        0.688452954675038,
+        0.6727240745393043,
+        0.6859506754501156
+      ]
+    },
+    "logistic_regression": {
+      "mean": 0.9792203047383579,
+      "std": 0.005027974923797025,
+      "folds": [
+        0.9866430377536707,
+        0.9774407301076444,
+        0.981685298685964,
+        0.9713457871314066,
+        0.9789866700131032
+      ]
+    },
+    "xgboost_proposed": {
+      "mean": 0.9997031169059649,
+      "std": 0.0005937661880699441,
+      "folds": [
+        1.0,
+        1.0,
+        1.0,
+        0.9985155845298251,
+        1.0
+      ]
+    }
+  },
+  "held_out_macro_f1": {
+    "rule_based_severity_only": {
+      "macro_f1": 0.6855003069267679,
+      "accuracy": 0.9395256916996048
+    },
+    "logistic_regression": {
+      "macro_f1": 0.9810192978856536,
+      "accuracy": 0.9869565217391304
+    },
+    "xgboost_proposed": {
+      "macro_f1": 1.0,
+      "accuracy": 1.0
+    }
+  },
+  "significance_paired_ttest": {
+    "xgboost_vs_rule_based_severity_only": {
+      "t": 89.99562023197734,
+      "p": 9.139203728969207e-08
+    },
+    "xgboost_vs_logistic_regression": {
+      "t": 8.948498592643187,
+      "p": 0.0008626441905516784
+    }
+  }
+}

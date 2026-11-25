@@ -1,0 +1,27 @@
+{
+  "source_file": "data\\raw\\findings_20261108T191135Z.jsonl",
+  "n_raw": 12647,
+  "n_normalised": 12647,
+  "n_labelled": 12647,
+  "severity_distribution": {
+    "LOW": 261,
+    "MEDIUM": 2047,
+    "HIGH": 4729,
+    "CRITICAL": 989,
+    "INFORMATIONAL": 4621
+  },
+  "account_tier_distribution": {
+    "non-prod": 12642,
+    "prod": 5
+  },
+  "internet_exposed_distribution": {
+    "False": 12364,
+    "True": 283
+  },
+  "urgency_distribution": {
+    "MONITOR": 6325,
+    "SUPPRESS": 4768,
+    "REMEDIATE_7D": 1271,
+    "REMEDIATE_NOW": 283
+  }
+}

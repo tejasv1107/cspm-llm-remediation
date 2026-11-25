@@ -1,0 +1,1140 @@
+{
+  "description": "Seed ground-truth set for retrieval MRR, covering all terraform_modules/ (9 findings each) plus 5 negative findings (empty relevant_modules) with no matching module. SEED DATA: review and replace with real anonymised findings labelled by a domain expert.",
+  "version": 2,
+  "findings": [
+    {
+      "id": "gt-001",
+      "control_id": "S3.1",
+      "title": "S3 general purpose buckets should have block public access settings enabled",
+      "resource_type": "AwsS3AccountPublicAccessBlock",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable Block Public Access at the account level.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-002",
+      "control_id": "S3.8",
+      "title": "S3 general purpose buckets should block public access",
+      "resource_type": "AwsS3Bucket",
+      "severity": "HIGH",
+      "recommendation_text": "Enable S3 Block Public Access for the bucket.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-003",
+      "control_id": "S3.2",
+      "title": "S3 general purpose buckets should block public read access",
+      "resource_type": "AwsS3Bucket",
+      "severity": "CRITICAL",
+      "recommendation_text": "Block public read access using Block Public Access settings.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-004",
+      "control_id": "S3.3",
+      "title": "S3 general purpose buckets should block public write access",
+      "resource_type": "AwsS3Bucket",
+      "severity": "CRITICAL",
+      "recommendation_text": "Block public write access using Block Public Access settings.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-005",
+      "control_id": "",
+      "title": "Ensure that S3 buckets are configured with Block public access (bucket settings)",
+      "resource_type": "AwsS3Bucket",
+      "severity": "HIGH",
+      "recommendation_text": "Turn on all four Block Public Access options.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-006",
+      "control_id": "",
+      "title": "S3 bucket ACL grants access to AllUsers",
+      "resource_type": "AwsS3Bucket",
+      "severity": "CRITICAL",
+      "recommendation_text": "Remove public ACL grants and enable ignore_public_acls.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-007",
+      "control_id": "",
+      "title": "Bucket policy allows public principal on S3 bucket",
+      "resource_type": "AwsS3Bucket",
+      "severity": "HIGH",
+      "recommendation_text": "Restrict public policies with block_public_policy.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-008",
+      "control_id": "",
+      "title": "Account-level S3 public access is not blocked",
+      "resource_type": "AwsS3AccountPublicAccessBlock",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable account level S3 public access block.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-009",
+      "control_id": "S3.8",
+      "title": "Storage bucket may be publicly readable or writable",
+      "resource_type": "AwsS3Bucket",
+      "severity": "HIGH",
+      "recommendation_text": "Enable restrict_public_buckets on the bucket.",
+      "relevant_modules": [
+        "s3_public_access_block"
+      ]
+    },
+    {
+      "id": "gt-010",
+      "control_id": "EC2.13",
+      "title": "Security groups should not allow ingress from 0.0.0.0/0 to port 22",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Remove the rule allowing SSH from anywhere.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-011",
+      "control_id": "EC2.53",
+      "title": "Security groups should not allow ingress from 0.0.0.0/0 to remote server administration ports",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Restrict administration ports to known CIDRs.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-012",
+      "control_id": "4.1",
+      "title": "Ensure no security groups allow ingress from 0.0.0.0/0 to port 22",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Limit SSH access to approved sources.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-013",
+      "control_id": "",
+      "title": "Security group allows unrestricted SSH access from the internet",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "CRITICAL",
+      "recommendation_text": "Replace 0.0.0.0/0 on port 22 with a bastion security group.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-014",
+      "control_id": "",
+      "title": "SSH port 22 open to the world on security group",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Revoke the public ingress rule for tcp/22.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-015",
+      "control_id": "",
+      "title": "Security group permits remote administration over SSH from ::/0",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Remove the IPv6 any-address ingress rule for SSH.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-016",
+      "control_id": "",
+      "title": "Inbound SSH from any IPv4 address detected on security group",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "HIGH",
+      "recommendation_text": "Restrict SSH ingress to the corporate VPN range.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-017",
+      "control_id": "EC2.13",
+      "title": "Ensure security group does not allow public SSH",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "CRITICAL",
+      "recommendation_text": "Revoke 0.0.0.0/0 tcp 22 and add an allow-list.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-018",
+      "control_id": "",
+      "title": "Default security group allows port 22 from anywhere",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "MEDIUM",
+      "recommendation_text": "Constrain SSH ingress rules.",
+      "relevant_modules": [
+        "security_group_restrict_ssh"
+      ]
+    },
+    {
+      "id": "gt-019",
+      "control_id": "EC2.7",
+      "title": "EBS default encryption should be enabled",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable EBS encryption by default in the region.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-020",
+      "control_id": "2.2.1",
+      "title": "Ensure EBS volume encryption is enabled",
+      "resource_type": "AwsEc2Volume",
+      "severity": "MEDIUM",
+      "recommendation_text": "Turn on default EBS encryption.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-021",
+      "control_id": "",
+      "title": "New EBS volumes are created unencrypted in this region",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable encryption by default for EBS volumes.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-022",
+      "control_id": "",
+      "title": "EBS encryption by default is disabled",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable ebs encryption by default.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-023",
+      "control_id": "",
+      "title": "Unencrypted EBS volumes can be created in this account",
+      "resource_type": "AwsEc2Volume",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enforce regional EBS encryption default with a KMS key.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-024",
+      "control_id": "",
+      "title": "Volumes do not use a customer managed KMS key by default",
+      "resource_type": "AwsEc2Volume",
+      "severity": "LOW",
+      "recommendation_text": "Set the EBS default KMS key.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-025",
+      "control_id": "EC2.7",
+      "title": "Regional EBS data at rest encryption is not enforced",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable EBS default encryption.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-026",
+      "control_id": "",
+      "title": "Account allows creation of unencrypted EBS snapshots and volumes",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Turn on EBS encryption by default.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-027",
+      "control_id": "",
+      "title": "Block storage volumes not encrypted by default",
+      "resource_type": "AwsEc2Volume",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable encryption by default at the region level.",
+      "relevant_modules": [
+        "ebs_encryption_default"
+      ]
+    },
+    {
+      "id": "gt-028",
+      "control_id": "CloudTrail.1",
+      "title": "CloudTrail should be enabled and configured with at least one multi-Region trail",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Create a multi-region trail.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-029",
+      "control_id": "CloudTrail.4",
+      "title": "CloudTrail log file validation should be enabled",
+      "resource_type": "AwsCloudTrailTrail",
+      "severity": "LOW",
+      "recommendation_text": "Enable log file validation on the trail.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-030",
+      "control_id": "CloudTrail.2",
+      "title": "CloudTrail should have encryption at-rest enabled",
+      "resource_type": "AwsCloudTrailTrail",
+      "severity": "MEDIUM",
+      "recommendation_text": "Encrypt trail logs with KMS.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-031",
+      "control_id": "2.1",
+      "title": "Ensure CloudTrail is enabled in all regions",
+      "resource_type": "AwsCloudTrailTrail",
+      "severity": "HIGH",
+      "recommendation_text": "Enable a multi-region CloudTrail trail.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-032",
+      "control_id": "",
+      "title": "No CloudTrail trail is logging API activity in this account",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Create and start a CloudTrail trail.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-033",
+      "control_id": "",
+      "title": "Audit logging is not enabled for all regions",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable a multi-region audit trail with global service events.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-034",
+      "control_id": "",
+      "title": "CloudTrail trail is not multi-region",
+      "resource_type": "AwsCloudTrailTrail",
+      "severity": "MEDIUM",
+      "recommendation_text": "Set is_multi_region_trail to true.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-035",
+      "control_id": "",
+      "title": "Log file integrity validation is disabled on trail",
+      "resource_type": "AwsCloudTrailTrail",
+      "severity": "LOW",
+      "recommendation_text": "Turn on enable_log_file_validation.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-036",
+      "control_id": "",
+      "title": "Management events are not captured by any trail",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Deploy a trail delivering to a secured S3 bucket.",
+      "relevant_modules": [
+        "cloudtrail_enable"
+      ]
+    },
+    {
+      "id": "gt-037",
+      "control_id": "IAM.7",
+      "title": "Password policies for IAM users should have strong configurations",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Strengthen the account password policy.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-038",
+      "control_id": "IAM.11",
+      "title": "Ensure IAM password policy requires at least one uppercase letter",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Require uppercase characters.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-039",
+      "control_id": "IAM.15",
+      "title": "Ensure IAM password policy requires minimum password length of 14 or greater",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Set the minimum password length to 14.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-040",
+      "control_id": "IAM.16",
+      "title": "Ensure IAM password policy prevents password reuse",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Set password reuse prevention to 24.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-041",
+      "control_id": "IAM.17",
+      "title": "Ensure IAM password policy expires passwords within 90 days or less",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Set maximum password age to 90 days.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-042",
+      "control_id": "1.9",
+      "title": "Ensure IAM password policy requires at least one symbol",
+      "resource_type": "AwsIamUser",
+      "severity": "MEDIUM",
+      "recommendation_text": "Require symbols in passwords.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-043",
+      "control_id": "",
+      "title": "Account password policy is weak: no complexity requirements",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Require lowercase uppercase numbers and symbols.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-044",
+      "control_id": "",
+      "title": "IAM users can choose short passwords",
+      "resource_type": "AwsIamUser",
+      "severity": "MEDIUM",
+      "recommendation_text": "Increase minimum password length.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-045",
+      "control_id": "",
+      "title": "Passwords never expire for IAM users",
+      "resource_type": "AwsIamUser",
+      "severity": "LOW",
+      "recommendation_text": "Enforce password rotation via max_password_age.",
+      "relevant_modules": [
+        "iam_password_policy"
+      ]
+    },
+    {
+      "id": "gt-046",
+      "control_id": "EC2.6",
+      "title": "VPC Flow Logs should be enabled in all VPCs",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable VPC Flow Logs delivering to CloudWatch Logs.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-047",
+      "control_id": "",
+      "title": "VPC does not have flow logging enabled",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Create a flow log for the VPC.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-048",
+      "control_id": "3.9",
+      "title": "Ensure VPC flow logging is enabled in all VPCs",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable flow logs for network traffic visibility.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-049",
+      "control_id": "",
+      "title": "Network traffic is not being logged for this VPC",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Turn on VPC Flow Logs.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-050",
+      "control_id": "",
+      "title": "No flow log destination configured for VPC",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "LOW",
+      "recommendation_text": "Deliver flow logs to a CloudWatch Logs group.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-051",
+      "control_id": "EC2.6",
+      "title": "Flow logging disabled on one or more VPCs",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable flow logs for all traffic types.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-052",
+      "control_id": "",
+      "title": "VPC traffic is not auditable due to missing flow logs",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable VPC flow logging with an IAM role for delivery.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-053",
+      "control_id": "",
+      "title": "Rejected connections are not visible due to missing flow logs",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "LOW",
+      "recommendation_text": "Enable flow logs capturing REJECT or ALL traffic.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-054",
+      "control_id": "",
+      "title": "Default VPC has no flow log",
+      "resource_type": "AwsEc2Vpc",
+      "severity": "MEDIUM",
+      "recommendation_text": "Create a flow log for the default VPC.",
+      "relevant_modules": [
+        "vpc_flow_logs_enable"
+      ]
+    },
+    {
+      "id": "gt-055",
+      "control_id": "GuardDuty.1",
+      "title": "GuardDuty should be enabled",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable the GuardDuty detector for this account and region.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-056",
+      "control_id": "",
+      "title": "No threat detection service is enabled in this account",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable GuardDuty.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-057",
+      "control_id": "4.14",
+      "title": "Ensure GuardDuty is enabled",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable the GuardDuty detector.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-058",
+      "control_id": "",
+      "title": "GuardDuty detector is not configured for this region",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Create a GuardDuty detector.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-059",
+      "control_id": "",
+      "title": "Malicious activity would go undetected due to disabled GuardDuty",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Turn on GuardDuty threat detection.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-060",
+      "control_id": "GuardDuty.1",
+      "title": "Intelligent threat detection is disabled",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable GuardDuty with S3 protection.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-061",
+      "control_id": "",
+      "title": "Account has no active GuardDuty findings pipeline",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable GuardDuty to begin generating findings.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-062",
+      "control_id": "",
+      "title": "GuardDuty is suspended or never enabled",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable the GuardDuty detector for continuous monitoring.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-063",
+      "control_id": "",
+      "title": "No automated threat detection configured for account",
+      "resource_type": "AwsAccount",
+      "severity": "HIGH",
+      "recommendation_text": "Enable GuardDuty detector.",
+      "relevant_modules": [
+        "guardduty_enable"
+      ]
+    },
+    {
+      "id": "gt-064",
+      "control_id": "EC2.2",
+      "title": "VPC default security group should prohibit inbound and outbound traffic",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Remove all ingress and egress rules from the default security group.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-065",
+      "control_id": "",
+      "title": "Default security group allows traffic",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Lock down the default security group to deny all traffic.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-066",
+      "control_id": "5.4",
+      "title": "Ensure the default security group restricts all traffic",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Revoke all rules from the default security group.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-067",
+      "control_id": "",
+      "title": "Default VPC security group has permissive rules",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Strip all ingress/egress rules from the default SG.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-068",
+      "control_id": "",
+      "title": "Unused default security group still allows traffic",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Adopt and lock down the default security group.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-069",
+      "control_id": "EC2.2",
+      "title": "Default security group is not restricted",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Remove default allow rules on the default security group.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-070",
+      "control_id": "",
+      "title": "Resources accidentally placed in default SG may have open access",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "MEDIUM",
+      "recommendation_text": "Lock down the default security group.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-071",
+      "control_id": "",
+      "title": "Default security group allows all outbound traffic",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Remove the default egress rule.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-072",
+      "control_id": "",
+      "title": "VPC default security group not hardened per baseline",
+      "resource_type": "AwsEc2SecurityGroup",
+      "severity": "LOW",
+      "recommendation_text": "Apply the default security group lockdown.",
+      "relevant_modules": [
+        "default_security_group_lockdown"
+      ]
+    },
+    {
+      "id": "gt-073",
+      "control_id": "S3.4",
+      "title": "S3 general purpose buckets should have server-side encryption configured",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable default server-side encryption on the bucket.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-074",
+      "control_id": "",
+      "title": "S3 bucket has no default encryption configuration",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable SSE-S3 or SSE-KMS default encryption.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-075",
+      "control_id": "2.1.2",
+      "title": "Ensure S3 bucket default encryption is enabled",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Configure default server-side encryption.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-076",
+      "control_id": "",
+      "title": "Objects uploaded without encryption would be stored in clear text",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable default bucket encryption.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-077",
+      "control_id": "",
+      "title": "S3 bucket server-side encryption is not configured",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Apply a default encryption configuration to the bucket.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-078",
+      "control_id": "S3.4",
+      "title": "Bucket lacks SSE-KMS or SSE-S3 default encryption",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Set apply_server_side_encryption_by_default.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-079",
+      "control_id": "",
+      "title": "Data at rest in S3 bucket is not encrypted by default",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Turn on default encryption for the bucket.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-080",
+      "control_id": "",
+      "title": "S3 bucket missing encryption configuration",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Configure AES256 or aws:kms default encryption.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-081",
+      "control_id": "",
+      "title": "New objects in bucket are not automatically encrypted",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable default server-side encryption.",
+      "relevant_modules": [
+        "s3_bucket_encryption"
+      ]
+    },
+    {
+      "id": "gt-082",
+      "control_id": "S3.14",
+      "title": "S3 general purpose buckets should have versioning enabled",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable versioning on the bucket to protect against accidental deletion.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-083",
+      "control_id": "",
+      "title": "S3 bucket versioning is disabled",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable bucket versioning.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-084",
+      "control_id": "",
+      "title": "Accidental object overwrite cannot be recovered due to missing versioning",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Turn on versioning for the bucket.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-085",
+      "control_id": "S3.14",
+      "title": "Bucket does not retain prior object versions",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable versioning_configuration with status Enabled.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-086",
+      "control_id": "",
+      "title": "Object recovery is not possible because versioning is off",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable S3 bucket versioning.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-087",
+      "control_id": "",
+      "title": "S3 bucket has no protection against accidental deletion",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable versioning on the bucket.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-088",
+      "control_id": "",
+      "title": "Versioning not enabled on bucket storing critical data",
+      "resource_type": "AwsS3Bucket",
+      "severity": "MEDIUM",
+      "recommendation_text": "Turn on bucket versioning.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-089",
+      "control_id": "",
+      "title": "Bucket lacks rollback capability for overwritten objects",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Enable versioning.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-090",
+      "control_id": "",
+      "title": "S3 bucket versioning configuration missing",
+      "resource_type": "AwsS3Bucket",
+      "severity": "LOW",
+      "recommendation_text": "Apply an Enabled versioning configuration.",
+      "relevant_modules": [
+        "s3_bucket_versioning"
+      ]
+    },
+    {
+      "id": "gt-091",
+      "control_id": "IAM.4",
+      "title": "IAM Access Analyzer should be enabled",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Enable an account-zone IAM Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-092",
+      "control_id": "",
+      "title": "No IAM Access Analyzer is enabled for the account",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Create an Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-093",
+      "control_id": "1.21",
+      "title": "Ensure IAM Access Analyzer is enabled",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Enable Access Analyzer for the account.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-094",
+      "control_id": "",
+      "title": "Externally shared resources would go undetected without Access Analyzer",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable an Access Analyzer to detect external access.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-095",
+      "control_id": "",
+      "title": "Account zone of trust is not monitored by Access Analyzer",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Create an ACCOUNT type Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-096",
+      "control_id": "IAM.4",
+      "title": "Resource-based policy exposure is not monitored",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Enable IAM Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-097",
+      "control_id": "",
+      "title": "No analyzer configured to detect resources shared outside the account",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Enable Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-098",
+      "control_id": "",
+      "title": "IAM Access Analyzer has never been created",
+      "resource_type": "AwsAccount",
+      "severity": "LOW",
+      "recommendation_text": "Create an account-level Access Analyzer.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-099",
+      "control_id": "",
+      "title": "Unintended external access findings are not being generated",
+      "resource_type": "AwsAccount",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable IAM Access Analyzer for the account.",
+      "relevant_modules": [
+        "access_analyzer_enable"
+      ]
+    },
+    {
+      "id": "gt-100",
+      "control_id": "RDS.8",
+      "title": "RDS DB instances should have deletion protection enabled",
+      "resource_type": "AwsRdsDbInstance",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable deletion protection.",
+      "relevant_modules": []
+    },
+    {
+      "id": "gt-101",
+      "control_id": "KMS.4",
+      "title": "AWS KMS key rotation should be enabled",
+      "resource_type": "AwsKmsKey",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable automatic key rotation.",
+      "relevant_modules": []
+    },
+    {
+      "id": "gt-102",
+      "control_id": "Lambda.2",
+      "title": "Lambda functions should use supported runtimes",
+      "resource_type": "AwsLambdaFunction",
+      "severity": "MEDIUM",
+      "recommendation_text": "Upgrade the function runtime.",
+      "relevant_modules": []
+    },
+    {
+      "id": "gt-103",
+      "control_id": "ELB.1",
+      "title": "Application Load Balancer should be configured to redirect all HTTP requests to HTTPS",
+      "resource_type": "AwsElbv2LoadBalancer",
+      "severity": "MEDIUM",
+      "recommendation_text": "Add an HTTP to HTTPS redirect listener rule.",
+      "relevant_modules": []
+    },
+    {
+      "id": "gt-104",
+      "control_id": "DynamoDB.1",
+      "title": "DynamoDB tables should automatically scale capacity with demand",
+      "resource_type": "AwsDynamoDbTable",
+      "severity": "MEDIUM",
+      "recommendation_text": "Enable auto scaling or on-demand mode.",
+      "relevant_modules": []
+    }
+  ]
+}

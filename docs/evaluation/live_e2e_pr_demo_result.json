@@ -1,0 +1,41 @@
+{
+  "finding_id": "live-e2e-s3-8-demo",
+  "control_id": "S3.8",
+  "prediction": {
+    "label": "REMEDIATE_NOW",
+    "source": "model",
+    "top_features": [
+      [
+        "severity_num",
+        2.1935417652130127
+      ],
+      [
+        "age_days",
+        1.025037407875061
+      ],
+      [
+        "internet_exposed",
+        0.7505725026130676
+      ]
+    ]
+  },
+  "retrieved_modules": [
+    "s3_public_access_block",
+    "s3_bucket_encryption",
+    "s3_bucket_versioning"
+  ],
+  "generation": {
+    "input_tokens": 3027,
+    "output_tokens": 605,
+    "estimated_cost_usd": 0.012104,
+    "hcl": "terraform {\n  required_version = \">= 1.5.0\"\n\n  required_providers {\n    aws = {\n      source  = \"hashicorp/aws\"\n      version = \">= 5.0\"\n    }\n  }\n}\n\nvariable \"bucket_name\" {\n  description = \"Name of the S3 bucket that must block all public access.\"\n  type        = string\n  default     = \"demo-payroll-exports\"\n\n  validation {\n    condition     = length(var.bucket_name) >= 3 && length(var.bucket_name) <= 63\n    error_message = \"bucket_name must be between 3 and 63 characters.\"\n  }\n}\n\ndata \"aws_caller_identity\" \"current\" {}\n\n# Fixes live-e2e-s3-8-demo: S3 bucket is not configured to block public access\nresource \"aws_s3_bucket_public_access_block\" \"stratogent_demo_payroll_exports\" {\n  bucket                  = var.bucket_name\n  block_public_acls       = true\n  block_public_policy     = true\n  ignore_public_acls      = true\n  restrict_public_buckets = true\n}\n\n# Account-level Block Public Access to prevent future public exposure in this prod account\nresource \"aws_s3_account_public_access_block\" \"account_level\" {\n  account_id              = data.aws_caller_identity.current.account_id\n  block_public_acls       = true\n  block_public_policy     = true\n  ignore_public_acls      = true\n  restrict_public_buckets = true\n}\n\noutput \"protected_bucket_name\" {\n  description = \"Bucket on which Block Public Access is now enforced.\"\n  value       = aws_s3_bucket_public_access_block.stratogent_demo_payroll_exports.bucket\n}\n\noutput \"account_level_block_enabled\" {\n  description = \"Whether account-level Block Public Access is enforced.\"\n  value       = true\n}"
+  },
+  "validation_passed": true,
+  "pr": {
+    "number": 1,
+    "url": "https://github.com/tejasv1107/cspm-remediations/pull/1",
+    "branch": "cspm/111111111111/c738d91d04ef",
+    "path": "remediations/111111111111/s3-8/c738d91d04ef.tf",
+    "created": true
+  }
+}

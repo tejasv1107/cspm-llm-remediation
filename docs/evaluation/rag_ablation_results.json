@@ -1,0 +1,343 @@
+{
+  "n_findings": 11,
+  "with_rag": {
+    "pass_rate": 0.9090909090909091,
+    "decline_rate": 0.0,
+    "n_retrieved_correct_module": 7
+  },
+  "without_rag": {
+    "pass_rate": 0.9090909090909091,
+    "decline_rate": 0.09090909090909091
+  },
+  "total_bedrock_calls": 22,
+  "total_estimated_cost_usd": 0.2203,
+  "rows": [
+    {
+      "finding_id": "ablation-00-iam-4",
+      "control_id": "IAM.4",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "access_analyzer_enable",
+        "guardduty_enable",
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 3214,
+      "output_tokens": 498,
+      "estimated_cost_usd": 0.011408,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-00-iam-4",
+      "control_id": "IAM.4",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 895,
+      "output_tokens": 295,
+      "estimated_cost_usd": 0.00474,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-01-cloudtrail-1",
+      "control_id": "CloudTrail.1",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "cloudtrail_enable"
+      ],
+      "declined": false,
+      "input_tokens": 3177,
+      "output_tokens": 2541,
+      "estimated_cost_usd": 0.031764,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-01-cloudtrail-1",
+      "control_id": "CloudTrail.1",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 907,
+      "output_tokens": 1228,
+      "estimated_cost_usd": 0.014094,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-02-ec2-2",
+      "control_id": "EC2.2",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "default_security_group_lockdown",
+        "security_group_restrict_ssh",
+        "vpc_flow_logs_enable"
+      ],
+      "declined": false,
+      "input_tokens": 4476,
+      "output_tokens": 422,
+      "estimated_cost_usd": 0.013172,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-02-ec2-2",
+      "control_id": "EC2.2",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 901,
+      "output_tokens": 243,
+      "estimated_cost_usd": 0.0042320000000000005,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-03-ec2-7",
+      "control_id": "EC2.7",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "ebs_encryption_default",
+        "s3_bucket_encryption"
+      ],
+      "declined": false,
+      "input_tokens": 2431,
+      "output_tokens": 621,
+      "estimated_cost_usd": 0.011072,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-03-ec2-7",
+      "control_id": "EC2.7",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 890,
+      "output_tokens": 155,
+      "estimated_cost_usd": 0.00333,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-04-guardduty-1",
+      "control_id": "GuardDuty.1",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "guardduty_enable",
+        "access_analyzer_enable",
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 3208,
+      "output_tokens": 628,
+      "estimated_cost_usd": 0.012696,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-04-guardduty-1",
+      "control_id": "GuardDuty.1",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 889,
+      "output_tokens": 343,
+      "estimated_cost_usd": 0.005208,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-05-iam-7",
+      "control_id": "IAM.7",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "iam_password_policy"
+      ],
+      "declined": false,
+      "input_tokens": 1894,
+      "output_tokens": 379,
+      "estimated_cost_usd": 0.007578,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-05-iam-7",
+      "control_id": "IAM.7",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 896,
+      "output_tokens": 242,
+      "estimated_cost_usd": 0.0042120000000000005,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-06-s3-4",
+      "control_id": "S3.4",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_bucket_encryption",
+        "s3_public_access_block",
+        "s3_bucket_versioning"
+      ],
+      "declined": false,
+      "input_tokens": 3003,
+      "output_tokens": 741,
+      "estimated_cost_usd": 0.013416,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-06-s3-4",
+      "control_id": "S3.4",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 904,
+      "output_tokens": 263,
+      "estimated_cost_usd": 0.004438,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-07-s3-14",
+      "control_id": "S3.14",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_bucket_versioning",
+        "s3_bucket_encryption",
+        "s3_public_access_block"
+      ],
+      "declined": false,
+      "input_tokens": 2991,
+      "output_tokens": 409,
+      "estimated_cost_usd": 0.010072000000000001,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-07-s3-14",
+      "control_id": "S3.14",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 892,
+      "output_tokens": 224,
+      "estimated_cost_usd": 0.004024,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-08-s3-8",
+      "control_id": "S3.8",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "s3_public_access_block",
+        "s3_bucket_encryption",
+        "s3_bucket_versioning"
+      ],
+      "declined": false,
+      "input_tokens": 2992,
+      "output_tokens": 325,
+      "estimated_cost_usd": 0.009234,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-08-s3-8",
+      "control_id": "S3.8",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 893,
+      "output_tokens": 256,
+      "estimated_cost_usd": 0.004346,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-09-ec2-13",
+      "control_id": "EC2.13",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "security_group_restrict_ssh",
+        "default_security_group_lockdown"
+      ],
+      "declined": false,
+      "input_tokens": 3108,
+      "output_tokens": 1120,
+      "estimated_cost_usd": 0.017416,
+      "validation_passed": false,
+      "validation_errors": [
+        "[tflint] terraform_unused_declarations (line 23): variable \"aws_region\" is declared but not used"
+      ],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-09-ec2-13",
+      "control_id": "EC2.13",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": true,
+      "input_tokens": 919,
+      "output_tokens": 135,
+      "estimated_cost_usd": 0.003188,
+      "validation_passed": false,
+      "validation_errors": [
+        "declined"
+      ],
+      "resource_type_in_output_matches": false
+    },
+    {
+      "finding_id": "ablation-10-ec2-6",
+      "control_id": "EC2.6",
+      "condition": "with_rag",
+      "retrieved_modules": [
+        "vpc_flow_logs_enable",
+        "default_security_group_lockdown"
+      ],
+      "declined": false,
+      "input_tokens": 2857,
+      "output_tokens": 1274,
+      "estimated_cost_usd": 0.018454,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    },
+    {
+      "finding_id": "ablation-10-ec2-6",
+      "control_id": "EC2.6",
+      "condition": "without_rag",
+      "retrieved_modules": [],
+      "declined": false,
+      "input_tokens": 906,
+      "output_tokens": 1038,
+      "estimated_cost_usd": 0.012192,
+      "validation_passed": true,
+      "validation_errors": [],
+      "resource_type_in_output_matches": true
+    }
+  ]
+}

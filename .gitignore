@@ -1,0 +1,53 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# --- Secrets / environment ---
+.env
+*.pem
+*.key
+github_app_private_key*
+
+# --- Terraform ---
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+
+# --- ML artefacts ---
+mlruns/
+mlartifacts/
+mlflow.db
+chroma_db/
+artifacts/
+*.ubj
+*.pkl
+
+# --- Data (real client findings must never be committed) ---
+data/raw/*
+data/anonymised/*
+data/labelled/*
+!data/raw/.gitkeep
+!data/anonymised/.gitkeep
+!data/labelled/.gitkeep
+# data/ground_truth/ IS tracked: it is the hand-reviewed MRR evaluation set.
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
